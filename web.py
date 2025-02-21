@@ -1,6 +1,5 @@
 # Импорт встроенной библиотеки для работы веб-сервера
 from http.server import BaseHTTPRequestHandler, HTTPServer
-import time
 
 # Для начала определим настройки запуска
 hostName = "localhost"  # Адрес для доступа по сети
@@ -19,10 +18,10 @@ class MyServer(BaseHTTPRequestHandler):
         self.send_response(200)  # Отправка кода ответа
         self.send_header("Content-type", "text/html")  # Отправка типа данных, который будет передаваться
         self.end_headers()  # Завершение формирования заголовков ответа
-
         with open("contact.html", "r", encoding="utf-8") as file:
             content = file.read()
         self.wfile.write(bytes(content, "utf-8"))  # Тело ответа
+
 
 
 if __name__ == "__main__":
